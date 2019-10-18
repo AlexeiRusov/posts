@@ -28,7 +28,7 @@ likesEl.onclick = function () {
         post.likes = post.likes + 1;
        likesEl.textContent = '❤ ' + post.likes;    };
 postBodyEl.appendChild(likesEl);
-const dislikesEl = document.createElement ('button1');
+const dislikesEl = document.createElement ('button');
 dislikesEl.className = 'btn btn-secondary';
 dislikesEl.textContent = '👎 ' + post.dislikes;
 dislikesEl.onclick = function () {
@@ -37,6 +37,7 @@ dislikesEl.onclick = function () {
 postBodyEl.appendChild(dislikesEl);
 rootEl.appendChild(postEl);
 const rootVideoEl = document.getElementById('root-v');
+
 const video = {
     id: 2,
     content: 'Второй пост в моей соц.сети видео',
@@ -49,7 +50,7 @@ videoEl.className = 'card';
 const mpegEl = document.createElement('video'); 
 mpegEl.src = video.videoUrl;
 mpegEl.controls = true;
-mpegEl.className = 'card-img-top';
+mpegEl.className = 'embed-responsive embed-responsive-16by9 card-img-top';
 videoEl.appendChild(mpegEl);
 const videoBodyEl = document.createElement('div');
 videoBodyEl.className = 'card-body';
@@ -74,6 +75,45 @@ videoDislikesEl.onclick = function () {
 }
 videoBodyEl.appendChild(videoDislikesEl);
 rootVideoEl.appendChild(videoEl);
+
+const rootAudioEl = document.getElementById('root-a');
+const audio = {
+    id: 3,
+    content: 'Третий пост в моей соц.сети аудио',
+    audioUrl: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
+    likes: 999,
+    dislikes: 666,
+    }
+const audioEl = document.createElement('div');
+audioEl.className = 'card';
+const mp3El = document.createElement('audio');
+mp3El.src = audio.audioUrl;
+mp3El.className = 'embed-responsive embed-responsive-21by9 card-img-top';
+audioEl.appendChild(mp3El);
+const audioBodyEl = document.createElement('div');
+audioBodyEl.className = 'card-body';
+audioEl.appendChild(audioBodyEl);
+const audioContentEl = document.createElement('p');
+audioContentEl.textContent = audio.content;
+audioBodyEl.appendChild(audioContentEl);
+const audioLikesEl = document.createElement('button');
+audioLikesEl.className = 'btn btn-primary';
+audioLikesEl.textContent = '❤ ' + audio.likes;
+audioLikesEl.onclick = function () {
+    audio.likes = audio.likes + 1;
+    audioLikesEl.textContent = '❤ ' + audio.likes;
+}
+audioBodyEl.appendChild(audioLikesEl);
+const audioDislikesEl = document.createElement('button');
+audioDislikesEl.className = 'btn btn-secondary';
+audioDislikesEl.textContent = '👎 ' + audio.dislikes;
+audioDislikesEl.onclick = function () {
+    audio.dislikes = audio.dislikes + 1;
+    audioDislikesEl.textContent = '👎 ' + audio.dislikes;
+}
+audioBodyEl.appendChild(audioDislikesEl);
+rootAudioEl.appendChild(audioEl);
+
 
 
 
